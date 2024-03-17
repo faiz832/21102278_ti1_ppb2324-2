@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Icon(Icons.group_outlined),
-                Text('Your contact is empty'),
+                Text('Your contact is empty...'),
               ],
             ),
           );
