@@ -103,22 +103,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: 50,
               ),
               ElevatedButton(
-                  onPressed: () {
-                    context
-                        .read<RegisterCubit>()
-                        .register(email: emailEdc.text, password: passEdc.text);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xff3D4DE0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10))),
-                  child: Text(
-                    "Register",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                        color: Colors.white),
-                  )),
+                onPressed: () {
+                  context
+                      .read<RegisterCubit>()
+                      .register(email: emailEdc.text, password: passEdc.text);
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xff3D4DE0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10))),
+                child: Text(
+                  "Register",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Colors.white),
+                ),
+              ),
               SizedBox(
                 height: 25,
               ),
@@ -127,15 +128,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   Text("Sudah punya akun ?"),
                   TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/login');
-                      },
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff3D4DE0)),
-                      ))
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff3D4DE0)),
+                    ),
+                  )
                 ],
               )
             ],
