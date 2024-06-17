@@ -10,24 +10,36 @@ import 'package:flutter/foundation.dart'
 /// ```dart
 /// import 'firebase_options.dart';
 /// // ...
-// await Firebase.initializeApp(
-//    options: DefaultFirebaseOptions.currentPlatform,
-// );
+/// await Firebase.initializeApp(
+///   options: DefaultFirebaseOptions.currentPlatform,
+/// );
 /// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -40,50 +52,12 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAMOF6pjWtyzTy-QpHuoyJ8DW4daBmsBQw',
-    appId: '1:220353261066:web:53d31368531bc1219df9f3',
-    messagingSenderId: '220353261066',
-    projectId: 'prakflutterfirebase-914b0',
-    authDomain: 'prakflutterfirebase-914b0.firebaseapp.com',
-    storageBucket: 'prakflutterfirebase-914b0.appspot.com',
-    measurementId: 'G-NQPBL8D1L4',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDJEjja6QXFKWAug1bL8zbpYYmsWoYT2Xk',
-    appId: '1:220353261066:android:a70d39d5ddb4b47d9df9f3',
-    messagingSenderId: '220353261066',
-    projectId: 'prakflutterfirebase-914b0',
-    storageBucket: 'prakflutterfirebase-914b0.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD3XobASBr-Y4Obwnv_Ykqp7oDCgtF9tDo',
-    appId: '1:220353261066:ios:f16a2ae4b1c0e4dd9df9f3',
-    messagingSenderId: '220353261066',
-    projectId: 'prakflutterfirebase-914b0',
-    storageBucket: 'prakflutterfirebase-914b0.appspot.com',
-    iosBundleId: 'com.example.firebaseAuth',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD3XobASBr-Y4Obwnv_Ykqp7oDCgtF9tDo',
-    appId: '1:220353261066:ios:f16a2ae4b1c0e4dd9df9f3',
-    messagingSenderId: '220353261066',
-    projectId: 'prakflutterfirebase-914b0',
-    storageBucket: 'prakflutterfirebase-914b0.appspot.com',
-    iosBundleId: 'com.example.firebaseAuth',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAMOF6pjWtyzTy-QpHuoyJ8DW4daBmsBQw',
-    appId: '1:220353261066:web:38ae092a0227c4849df9f3',
-    messagingSenderId: '220353261066',
-    projectId: 'prakflutterfirebase-914b0',
-    authDomain: 'prakflutterfirebase-914b0.firebaseapp.com',
-    storageBucket: 'prakflutterfirebase-914b0.appspot.com',
-    measurementId: 'G-JL3DPWSPKG',
+    apiKey: 'AIzaSyDBRLZ2zsg3Ml5oUplF3F06qA4Pdwt5AQs',
+    appId: '1:547502185428:android:9bb0955b7ae0f2eb685441',
+    messagingSenderId: '547502185428',
+    projectId: 'prakflutterfirebase-cc2b3',
+    storageBucket: 'prakflutterfirebase-cc2b3.appspot.com',
   );
 
 }

@@ -1,12 +1,12 @@
+import 'package:firebaseAuth/ui/home_screen.dart';
+import 'package:firebaseAuth/ui/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pertemuan9/bloc/login/login_cubit.dart';
-import 'package:pertemuan9/ui/home_screen.dart';
-import 'package:pertemuan9/ui/login.dart';
-import 'package:pertemuan9/utils/routes.dart';
+import 'package:firebaseAuth/bloc/login/login_cubit.dart';
 import 'bloc/register/register_cubit.dart';
+import 'package:firebaseAuth/utils/routes.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -19,6 +19,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => RegisterCubit())
       ],
       child: MaterialApp(
-        title: "Praktikum 9",
+        title: "Praktikum 8",
         debugShowCheckedModeBanner: false,
         navigatorKey: NAV_KEY,
         onGenerateRoute: generateRoute,

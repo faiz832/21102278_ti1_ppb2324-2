@@ -1,6 +1,6 @@
 # firebase_auth
 
-A new Flutter project.
+Firebase Authentication Pertemuan 8.
 
 ## Getting Started
 

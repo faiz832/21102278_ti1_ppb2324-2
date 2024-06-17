@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebaseAuth/bloc/login/login_cubit.dart';
+import 'phone_auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:pertemuan9/bloc/login/login_cubit.dart';
-import 'package:pertemuan9/ui/home_screen.dart';
-import 'package:pertemuan9/ui/phone_auth_screen.dart';
 import '../utils/routes.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -27,44 +27,43 @@ class _LoginScreenState extends State<LoginScreen> {
       idToken: gAuth.idToken,
     );
     return await FirebaseAuth.instance.signInWithCredential(credential).then(
-        (value) async => await Navigator.pushAndRemoveUntil(
+            (value) async => await Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => HomeScreen()),
-            (route) => false));
+                (route) => false));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
-        child: BlocListener<LoginCubit, LoginState>(
-          listener: (context, state) {
-            if (state is LoginLoading) {
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(SnackBar(content: Text('Loading..')));
-            }
-            if (state is LoginFailure) {
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(SnackBar(
-                  content: Text(state.msg),
-                  backgroundColor: Colors.red,
-                ));
-            }
-            if (state is LoginSuccess) {
-              // context.read<AuthCubit>().loggedIn();
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(SnackBar(
-                  content: Text(state.msg),
-                  backgroundColor: Colors.green,
-                ));
-              Navigator.pushNamedAndRemoveUntil(
-                  context, rHome, (route) => false);
-            }
-          },
+      body: BlocListener<LoginCubit, LoginState>(
+        listener: (context, state) {
+          if (state is LoginLoading) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(SnackBar(content: Text('Loading..')));
+          }
+          if (state is LoginFailure) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(SnackBar(
+                content: Text(state.msg),
+                backgroundColor: Colors.red,
+              ));
+          }
+          if (state is LoginSuccess) {
+            // context.read<AuthCubit>().loggedIn();
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(SnackBar(
+                content: Text(state.msg),
+                backgroundColor: Colors.green,
+              ));
+            Navigator.pushNamedAndRemoveUntil(context, rHome, (route) => false);
+          }
+        },
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
           child: ListView(
             children: [
               Text(
@@ -174,8 +173,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 25,
               ),
               Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.center, // Menengahkan elemen horizontal
+                mainAxisAlignment: MainAxisAlignment.center,
+                // Menengahkan elemen horizontal
                 children: [
                   Text("Belum punya akun ?"),
                   TextButton(

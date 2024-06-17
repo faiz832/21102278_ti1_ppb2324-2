@@ -1,7 +1,7 @@
+import 'package:firebaseAuth/ui/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:pertemuan9/ui/home_screen.dart';
-import 'package:pertemuan9/ui/login.dart';
-import 'package:pertemuan9/ui/register.dart';
+import 'package:firebaseAuth/ui/login.dart';
+import 'package:firebaseAuth/ui/register.dart';
 
 MaterialPageRoute _pageRoute(
         {required Widget body, required RouteSettings settings}) =>
@@ -10,7 +10,6 @@ MaterialPageRoute _pageRoute(
 Route? generateRoute(RouteSettings settings) {
   Route? _route;
   final _args = settings.arguments;
-
   switch (settings.name) {
     case rLogin:
       _route = _pageRoute(body: LoginScreen(), settings: settings);
